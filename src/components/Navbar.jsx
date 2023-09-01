@@ -29,7 +29,7 @@ const Navbar = () => {
                         {"Municipio"}
                     </Link>
                     <Link
-                        to={"/view"}
+                        to={"/list"}
                         style={{color: "white"}}
                         className=" btn btn-outline-dark btn-sm navbar-btn"
                     >
