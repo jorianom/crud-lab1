@@ -29,6 +29,13 @@ const Navbar = () => {
                         {"Municipio"}
                     </Link>
                     <Link
+                        to={"/departamento"}
+                        style={{color: "white"}}
+                        className=" btn btn-outline-dark btn-sm navbar-btn"
+                    >
+                        {"Departamento"}
+                    </Link>
+                    <Link
                         to={"/list"}
                         style={{color: "white"}}
                         className=" btn btn-outline-dark btn-sm navbar-btn"

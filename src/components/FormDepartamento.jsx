@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import clienteAxios from "../config/clienteAxios";
 
-const FormMunicipio = () => {
+const FormDepartamento = () => {
     const {
         handleSubmit,
         register,
@@ -29,7 +29,7 @@ const FormMunicipio = () => {
     return (
         <>
             <div className="container-fluid mt-5 post">
-                <h2 className="my-5">Agregar Municipio</h2>
+                <h2 className="my-5">Agregar Departamento</h2>
                 {!error ? <div className="alert alert-success">Enviado</div> : null}
                 <form id="form1" onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-3">
@@ -47,7 +47,20 @@ const FormMunicipio = () => {
                         )}
                     </div>
                     <div className="row g-3 mb-3">
-                        <div className="col-auto">
+                        <div className="col">
+                            <label htmlFor="poblacion" className="form-label">
+                                Población :
+                            </label>
+                            <input
+                                type="number"
+                                {...register("area")}
+                                className="form-control"
+                                id="poblacion"
+                                name="poblacion"
+                                placeholder="Poblacion Municipio"
+                            />
+                        </div>
+                        <div className="col">
                             <label htmlFor="telefono" className="form-label">
                                 Area :
                             </label>
@@ -60,7 +73,7 @@ const FormMunicipio = () => {
                                 placeholder="Area"
                             />
                         </div>
-                        <div className="col-auto">
+                        <div className="col">
                             <label htmlFor="presupuesto" className="form-label">
                                 Presupuesto :
                             </label>
@@ -87,4 +100,4 @@ const FormMunicipio = () => {
     );
 };
 
-export default FormMunicipio;
+export default FormDepartamento;
