@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import Listas from './components/Listas'
 import FormPersona from './components/FormPersona'
 import FormVivienda from './components/FormVivienda'
 import FormMunicipio from './components/FormMunicipio'
@@ -17,7 +18,7 @@ function App() {
           <Route path="/vivienda" element={<FormVivienda />} />
           <Route path="/municipio" element={<FormMunicipio />} />
           <Route path="/departamento" element={<FormDepartamento />} />
-          <Route path="/list" element={<FormPersona />} />
+          <Route path="/list" element={<Listas />} />
         </Routes>
       </BrowserRouter>
     </>
