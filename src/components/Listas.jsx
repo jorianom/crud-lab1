@@ -47,7 +47,7 @@ const List = () => {
     }
     const removeItemV = async (id) => {
         try {
-            await clienteAxios.delete("municipios?id_mun=eq." + id);
+            await clienteAxios.delete("viviendas?id_viv=eq." + id);
             getData();
         } catch (err) {
             console.log(err);
@@ -152,7 +152,7 @@ const List = () => {
                     </thead>
                     <tbody>
                         {viviendas.map((item) => (
-                            <tr key={item.id_mun}>
+                            <tr key={item.id_viv}>
                                 <th scope="row">{i++}</th>
                                 <td>{item.direccion}</td>
                                 <td>{item.capacidad}</td>
@@ -160,7 +160,7 @@ const List = () => {
                                 <td>{item.municipio_id}</td>
                                 <td>
                                     <input
-                                        onClick={() => removeItemV(item.id_mun)}
+                                        onClick={() => removeItemV(item.id_viv)}
                                         type="button"
                                         className="btn btn-danger mb-3"
                                         value="Borrar"

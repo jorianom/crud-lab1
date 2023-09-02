@@ -12,12 +12,21 @@ const FormPersona = () => {
     const [error, setError] = React.useState(true);
 
     const [viviendas, setViviendas] = React.useState([]);
-    const [departamentos, setDepartamentos] = React.useState([]);
     const [municipios, setMunicipios] = React.useState([]);
+    const [personas, setPersonas] = React.useState([]);
     const onSubmit = async (data) => {
         console.log(data);
         try {
-            await clienteAxios.post("api/crud/add", data);
+            for (let clave in data) {
+                // eslint-disable-next-line no-prototype-builtins
+                if (data.hasOwnProperty(clave)) {
+                    if (data[clave] === '') {
+                        data[clave] = null;
+                    }
+                }
+            }
+            console.log("sss"+data.data);
+            await clienteAxios.post("personas", data);
             setError(false);
             clean();
         } catch (err) {
@@ -32,11 +41,13 @@ const FormPersona = () => {
     };
     const getData = async () => {
         try {
-            const rta = await clienteAxios.get("api/crud/viviendas");
-            console.log(rta.data.viviendas);
-            setViviendas(rta.data.viviendas);
-            setMunicipios(rta.data.viviendas);
-            setDepartamentos(rta.data.viviendas);
+
+            const rtaM = await clienteAxios.get("municipios?select=*");
+            setMunicipios(rtaM.data);
+            const rtaV = await clienteAxios.get("viviendas?select=*");
+            setViviendas(rtaV.data);
+            const rtaP = await clienteAxios.get("personas?select=*");
+            setPersonas(rtaP.data);
         } catch (err) {
             console.log(err);
             setError({
@@ -80,11 +91,11 @@ const FormPersona = () => {
                                 Numero de Documento :
                             </label>
                             <input
-                                type="text"
-                                {...register("Documento")}
+                                type="number"
+                                {...register("id")}
                                 className="form-control"
-                                id="Documento"
-                                name="Documento"
+                                id="id"
+                                name="id"
                                 placeholder="# Documento"
                             />
                         </div>
@@ -135,10 +146,10 @@ const FormPersona = () => {
                             </label>
                             <select
                                 className="form-select mb-3"
-                                {...register("viviendaId")}
+                                {...register("vivienda_id")}
                             >
                                 {viviendas.map((item) => (
-                                    <option key={item._id} value={item._id}>
+                                    <option key={item.id_viv} value={item.id_viv}>
                                         {item.direccion}
                                     </option>
                                 ))}
@@ -151,27 +162,25 @@ const FormPersona = () => {
                             </label>
                             <select
                                 className="form-select mb-3"
-                                {...register("municipioId")}
                             >
                                 {municipios.map((item) => (
-                                    <option key={item._id} value={item._id}>
-                                        {item.direccion}
+                                    <option key={item.id} value={item.id}>
+                                        {item.nombre}
                                     </option>
                                 ))}
                             </select>
                         </div>
-
                         <div className="col">
-                            <label htmlFor="departamento" className="form-label">
-                                Departamento :
+                            <label htmlFor="familia" className="form-label">
+                                Cabeza de familia:
                             </label>
                             <select
                                 className="form-select mb-3"
-                                {...register("departamentoId")}
+                                {...register("cabeza_de_familia")}
                             >
-                                {departamentos.map((item) => (
-                                    <option key={item._id} value={item._id}>
-                                        {item.direccion}
+                                {personas.map((item) => (
+                                    <option key={item.id} value={item.id}>
+                                        {item.id}
                                     </option>
                                 ))}
                             </select>
