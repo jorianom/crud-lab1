@@ -13,7 +13,7 @@ const FormMunicipio = () => {
     const onSubmit = async (data) => {
         console.log(data);
         try {
-            await clienteAxios.post("api/crud/addMunicipio", data);
+            await clienteAxios.post("municipios", data);
             setError(false);
             clean();
         } catch (err) {

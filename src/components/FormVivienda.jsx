@@ -14,7 +14,7 @@ const FormVivienda = () => {
     const onSubmit = async (data) => {
         console.log(data);
         try {
-            await clienteAxios.post("api/crud/addVivienda", data);
+            await clienteAxios.post("viviendas", data);
             setError(false);
             clean();
         } catch (err) {
@@ -30,8 +30,9 @@ const FormVivienda = () => {
 
     const getData = async () => {
         try {
-            const rta = await clienteAxios.get("api/crud/municipios");
-            setMunicipios(rta.data.municipios);
+            const rta = await clienteAxios.get("municipios?select=*");
+            console.log(rta)
+            setMunicipios(rta.data);
         } catch (err) {
             console.log(err);
             setError({
@@ -83,7 +84,7 @@ const FormVivienda = () => {
                                 placeholder="Capacidad"
                             />
                         </div>
-                        <div class="col-auto">
+                        <div className="col-auto">
                             <label htmlFor="niveles" className="form-label">
                                 Niveles :
                             </label>
@@ -96,16 +97,16 @@ const FormVivienda = () => {
                                 placeholder="Niveles"
                             />
                         </div>
-                        <div class="col-auto">
+                        <div className="col-auto">
                             <label htmlFor="municipio" className="form-label">
                                 Municipio :
                             </label>
                             <select
                                 className="form-select mb-3"
-                                {...register("municipioId")}
+                                {...register("municipio_id")}
                             >
                                 {municipios.map((item) => (
-                                    <option key={item._id} value={item._id}>
+                                    <option key={item.id_mun} value={item.id_mun}>
                                         {item.nombre}
                                     </option>
                                 ))}
