@@ -13,7 +13,7 @@ const FormDepartamento = () => {
     const onSubmit = async (data) => {
         console.log(data);
         try {
-            await clienteAxios.post("api/crud/addMunicipio", data);
+            await clienteAxios.post("departamentos", data);
             setError(false);
             clean();
         } catch (err) {
@@ -53,7 +53,7 @@ const FormDepartamento = () => {
                             </label>
                             <input
                                 type="number"
-                                {...register("area")}
+                                {...register("poblacion")}
                                 className="form-control"
                                 id="poblacion"
                                 name="poblacion"
@@ -61,7 +61,7 @@ const FormDepartamento = () => {
                             />
                         </div>
                         <div className="col">
-                            <label htmlFor="telefono" className="form-label">
+                            <label htmlFor="area" className="form-label">
                                 Area :
                             </label>
                             <input

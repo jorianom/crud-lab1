@@ -40,7 +40,7 @@ const Navbar = () => {
                         style={{color: "white"}}
                         className=" btn btn-outline-dark btn-sm navbar-btn"
                     >
-                        {"Lista Personas"}
+                        {"Listas"}
                     </Link>
                 </div>
             </nav>
