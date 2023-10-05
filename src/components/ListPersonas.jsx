@@ -242,9 +242,6 @@ const ListPersonas = () => {
                                                     Vivienda :
                                                 </label>
                                                 <select className="form-select mb-3" {...register("vivienda_id")}>
-                                                    <option value={personaEdit.vivienda_id} defaultValue={personaEdit.vivienda_id}>
-                                                        Selecciona una opción
-                                                    </option>
                                                     {viviendas
                                                         ? viviendas.map((item) => (
                                                               <option key={item.id_viv} value={item.id_viv}>
@@ -260,9 +257,6 @@ const ListPersonas = () => {
                                                     Cabeza de familia:
                                                 </label>
                                                 <select className="form-select mb-3" {...register("cabeza_de_familia")}>
-                                                    <option value={personaEdit.cabeza_de_familia} defaultValue={personaEdit.cabeza_de_familia}>
-                                                        Selecciona una opción
-                                                    </option>
                                                     {personas
                                                         ? personas.map((item) => (
                                                               <option key={item.id} value={item.id}>
