@@ -20,8 +20,8 @@ function App() {
           <Route path="/vivienda" element={<FormVivienda />} />
           <Route path="/municipio" element={<FormMunicipio />} />
           <Route path="/departamento" element={<FormDepartamento />} />
-          <Route path="/lista-personas" element={<ListPersonas />} />
-          <Route path="/lista-viviendas" element={<ListViviendas />} />
+          <Route path="/listapersonas" element={<ListPersonas />} />
+          <Route path="/listaviviendas" element={<ListViviendas />} />
           <Route path="/lista-municipios" element={<ListMunicipios />} />
           <Route path="/lista-departamentos" element={<ListDepartamentos />} />
         </Routes>
