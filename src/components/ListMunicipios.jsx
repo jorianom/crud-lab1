@@ -199,7 +199,7 @@ const ListMunicipios = () => {
                                             </div>
                                             <div className="col">
                                                 <label htmlFor="departamento" className="form-label">
-                                                    Gobernador :
+                                                    Alcalde :
                                                 </label>
                                                 <select required className="form-select mb-3" {...register("gobernador_id")}>
                                                     {personas
