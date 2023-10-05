@@ -114,7 +114,7 @@ const FormMunicipio = () => {
                         </div>
                         <div className="col">
                             <label htmlFor="departamento" className="form-label">
-                                Gobernador :
+                                Alcalde :
                             </label>
                             <select className="form-select mb-3" {...register("gobernador_id")}>
                                 <option value={""} defaultValue={""}>
