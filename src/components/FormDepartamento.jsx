@@ -37,21 +37,21 @@ const FormDepartamento = () => {
                             Nombre Municipio:
                         </label>
                         <input
+                            required
                             type="text"
                             className="form-control"
                             placeholder="Nombre Municipio"
                             {...register("nombre", { required: true })}
                         />
-                        {errors.name && (
-                            <span className="valid">Este campo es obligatorio</span>
-                        )}
+                        {errors.name && <span className="valid">Este campo es obligatorio</span>}
                     </div>
                     <div className="row g-3 mb-3">
                         <div className="col">
                             <label htmlFor="poblacion" className="form-label">
-                                Población :
+                                Población (M):
                             </label>
                             <input
+                                required
                                 type="number"
                                 {...register("poblacion")}
                                 className="form-control"
@@ -62,22 +62,17 @@ const FormDepartamento = () => {
                         </div>
                         <div className="col">
                             <label htmlFor="area" className="form-label">
-                                Area :
+                                Area (km^2):
                             </label>
-                            <input
-                                type="number"
-                                {...register("area")}
-                                className="form-control"
-                                id="area"
-                                name="area"
-                                placeholder="Area"
-                            />
+                            <input required type="number" {...register("area")} className="form-control" id="area" name="area" placeholder="Area" />
                         </div>
                         <div className="col">
                             <label htmlFor="presupuesto" className="form-label">
-                                Presupuesto :
+                                Presupuesto (B):
                             </label>
                             <input
+                                required
+                                step=".01"
                                 type="number"
                                 {...register("presupuesto")}
                                 className="form-control"
@@ -88,11 +83,7 @@ const FormDepartamento = () => {
                         </div>
                     </div>
                     <div className="col-auto">
-                        <input
-                            type="submit"
-                            className="btn btn-primary mb-3"
-                            value="Enviar"
-                        />
+                        <input type="submit" className="btn btn-primary mb-3" value="Enviar" />
                     </div>
                 </form>
             </div>
